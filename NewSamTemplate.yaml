@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Outputs the time
+Resources:
+  TimeFunction:
+    Properties:
+      CodeUri: s3://samlambdapackage/293f7c214f876a060705404fe5526787
+      Events:
+        MyTimeApi:
+          Properties:
+            Method: GET
+            Path: /TimeResource
+          Type: Api
+      Handler: index.handler
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
